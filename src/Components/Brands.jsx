@@ -5,7 +5,7 @@ const Brands = () => {
   const [brands, setBrands] = useState([]);
 
   useEffect(() => {
-    fetch("https://brand-store-server-i1vxuc10a-tahseen-hossains-projects.vercel.app/elements")
+    fetch("http://localhost:5000/elements")
       .then((res) => res.json())
       .then((data) => {
         const uniqueLogos = new Set();

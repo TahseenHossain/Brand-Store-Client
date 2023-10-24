@@ -27,7 +27,7 @@ const UpdateElement = () => {
     };
 
     //send data to the server
-    fetch(`https://brand-store-server-i1vxuc10a-tahseen-hossains-projects.vercel.app/elements/${_id}`, {
+    fetch(`http://localhost:5000/elements/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

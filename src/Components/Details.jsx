@@ -19,7 +19,7 @@ const Details = () => {
     };
 
     //send data to the server
-    fetch(`https://brand-store-server-i1vxuc10a-tahseen-hossains-projects.vercel.app/user/${email}`, {
+    fetch(`http://localhost:5000/user/${email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

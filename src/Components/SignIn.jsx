@@ -34,7 +34,7 @@ const SignIn = () => {
       .then((result) => {
         console.log(result.user);
         const user = { photoURL, name, email, password, myCart };
-        fetch("https://brand-store-server-i1vxuc10a-tahseen-hossains-projects.vercel.app/user", {
+        fetch("http://localhost:5000/user", {
           method: "POST",
           headers: {
             "content-type": "application/json",

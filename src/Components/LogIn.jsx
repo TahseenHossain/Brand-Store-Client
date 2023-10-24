@@ -1,8 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import { useContext, useState } from "react";
-import Swal from "sweetalert2";
-
+// import { ToastContainer, toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 
 const LogIn = () => {
   const [logInError, setLogInError] = useState("");
@@ -20,24 +20,14 @@ const LogIn = () => {
       .then((result) => {
         console.log(result.user);
         e.target.reset();
-        Swal.fire({
-          title: "Success!",
-          text: "SignUp Successfully",
-          icon: "success",
-          confirmButtonText: "Cool",
-        });
         navigate("/");
+        //toast.success("Log In Successful");
       })
       .catch((error) => {
         e.target.reset();
         console.error(error);
         setLogInError(error.message);
-        Swal.fire({
-          title: "Failed!",
-          text: error.message,
-          icon: "Failed",
-          confirmButtonText: "Cool",
-        });
+        //toast.error(error.message);
       });
   };
 
@@ -88,7 +78,7 @@ const LogIn = () => {
           />
         </div>
         <div className="form-control mt-6">
-          <button className="btn bg-red-600 hover:bg-orange-600 text-white">
+          <button className="btn bg-[#FF477E] hover:bg-pink-400 text-white">
             Log In
           </button>
         </div>
@@ -97,20 +87,19 @@ const LogIn = () => {
       <div className="flex flex-col text-center py-8">
         <p className="text-2xl mb-4">If You Are New Here</p>
         <Link to="/SignIn">
-          <button className="btn bg-red-600 hover:bg-orange-600 text-white">
+          <button className="btn bg-[#FF477E] hover:bg-pink-400 text-white">
             Sign Up
           </button>
         </Link>
         <Link to="/SignIn">
           <button
             onClick={handleGoogleSignIn}
-            className="btn bg-red-600 hover:bg-orange-600 text-white"
+            className="btn bg-[#FF477E] hover:bg-pink-400 text-white"
           >
             Google
           </button>
         </Link>
       </div>
-      
     </div>
   );
 };

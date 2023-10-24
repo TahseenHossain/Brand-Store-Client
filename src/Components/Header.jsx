@@ -13,7 +13,7 @@ const Header = () => {
     const fetchUserData = async () => {
       try {
         const userResponse = await fetch(
-          `https://brand-store-server-i1vxuc10a-tahseen-hossains-projects.vercel.app/user/${user.email}`
+          `http://localhost:5000/user/${user.email}`
         );
         const userData = await userResponse.json();
 
@@ -22,7 +22,7 @@ const Header = () => {
         
         setLoading(false);
       } catch (error) {
-        console.error(error);
+        //console.error(error);
         setLoading(false);
       }
     };
@@ -39,7 +39,6 @@ const Header = () => {
   };
 
   
-  console.log(image);
   const navLinks = (
     <>
       <ul className="flex text-3xl">
