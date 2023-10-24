@@ -1,8 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import { useContext, useState } from "react";
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import Swal from "sweetalert2";
 
 const LogIn = () => {
   const [logInError, setLogInError] = useState("");
@@ -12,22 +11,34 @@ const LogIn = () => {
 
   const handleLogIn = (e) => {
     e.preventDefault();
-    const email = e.target.email.value;
-    const password = e.target.password.value;
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
     console.log(email, password);
+
 
     signInUser(email, password)
       .then((result) => {
         console.log(result.user);
-        e.target.reset();
+        Swal.fire({
+          title: "Success!",
+          text: "Log In Successful",
+          icon: "success",
+          confirmButtonText: "Cool",
+        });
         navigate("/");
-        //toast.success("Log In Successful");
       })
+
       .catch((error) => {
         e.target.reset();
         console.error(error);
         setLogInError(error.message);
-        //toast.error(error.message);
+        Swal.fire({
+          title: "Failed!",
+          text: error.message,
+          icon: "error",
+          confirmButtonText: "Cool",
+        });
       });
   };
 
@@ -36,13 +47,11 @@ const LogIn = () => {
       .then((result) => {
         e.target.reset();
         console.log(result.user);
-        //toast.success("Log In Successful");
       })
       .catch((error) => {
         e.target.reset();
         console.error(error);
         setLogInError(error.message);
-        //toast.error(error.message);
       });
   };
 
