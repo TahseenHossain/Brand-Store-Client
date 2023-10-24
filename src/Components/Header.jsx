@@ -13,7 +13,7 @@ const Header = () => {
     const fetchUserData = async () => {
       try {
         const userResponse = await fetch(
-          `http://localhost:5000/user/${user.email}`
+          `https://brand-store-server-i1vxuc10a-tahseen-hossains-projects.vercel.app/user/${user.email}`
         );
         const userData = await userResponse.json();
 

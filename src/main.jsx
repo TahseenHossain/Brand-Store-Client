@@ -26,7 +26,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        //loader: () => fetch("http://localhost:5000/user"),
+        //loader: () => fetch("https://brand-store-server-i1vxuc10a-tahseen-hossains-projects.vercel.app/user"),
       },
       {
         path: "/Cars/:brand",
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
             <Cars></Cars>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/elements"),
+        loader: () => fetch("https://brand-store-server-i1vxuc10a-tahseen-hossains-projects.vercel.app/elements"),
       },
       {
         path: "/detail/:model",
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
             <Details></Details>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/elements"),
+        loader: () => fetch("https://brand-store-server-i1vxuc10a-tahseen-hossains-projects.vercel.app/elements"),
       },
       {
         path: "/addElement",
@@ -58,7 +58,7 @@ const router = createBrowserRouter([
         path: "/update/:id",
         element: <UpdateElement></UpdateElement>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/elements/${params.id}`),
+          fetch(`https://brand-store-server-i1vxuc10a-tahseen-hossains-projects.vercel.app/elements/${params.id}`),
       },
       {
         path: "/LogIn",
@@ -76,7 +76,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: () => 
-          fetch(`http://localhost:5000/user`),
+          fetch(`https://brand-store-server-i1vxuc10a-tahseen-hossains-projects.vercel.app/user`),
       },
     ],
   },

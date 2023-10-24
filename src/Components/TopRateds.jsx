@@ -5,7 +5,7 @@ const TopRateds = () => {
   const [topRateds, setTopRateds] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/elements")
+    fetch("https://brand-store-server-i1vxuc10a-tahseen-hossains-projects.vercel.app/elements")
       .then((res) => res.json())
       .then((data) => setTopRateds(data));
   }, []);

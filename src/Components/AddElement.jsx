@@ -29,7 +29,7 @@ const AddElement = () => {
     console.log(newElement);
 
     //send data to the server
-    fetch("http://localhost:5000/elements", {
+    fetch("https://brand-store-server-i1vxuc10a-tahseen-hossains-projects.vercel.app/elements", {
       method: "POST",
       headers: {
         "content-type": "application/json",
