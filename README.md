@@ -17,9 +17,12 @@ When a user who is not signed in tries to see details of our Services he will th
 Our project has a button on the nav bar that will Sign out to you with a press.
 
 - Responsive:
-This project is responsive and works on Desktop, Laptop, Tab, and Mobile without any problem. This code does not have any bottom bar that will harm user experience. We used Reichart for this.
+This project is responsive and works on Desktop, Laptop, Tab, and Mobile without any problem. This code does not have any bottom bar that will harm user experience.
 
 Client Side Link:https://6538d0d3b266936bc82b93ff--fantastic-crepe-dadf07.netlify.app/
+
 Server Side Link:https://brand-store-server-lovat.vercel.app/
+
 Client Repo Link:https://github.com/programming-hero-web-course-4/b8a10-brandshop-client-side-TahseenHossain
+
 Server Repo Link:https://github.com/programming-hero-web-course-4/b8a10-brandshop-server-side-TahseenHossain

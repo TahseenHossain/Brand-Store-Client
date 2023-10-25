@@ -75,8 +75,8 @@ const router = createBrowserRouter([
             <MyCarts></MyCarts>
           </PrivateRoute>
         ),
-        loader: () => 
-          fetch(`https://brand-store-server-lovat.vercel.app/user`),
+        // loader: () => 
+        //   fetch(`https://brand-store-server-lovat.vercel.app/user`),
       },
     ],
   },
