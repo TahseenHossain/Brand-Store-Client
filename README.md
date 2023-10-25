@@ -17,7 +17,7 @@ When a user who is not signed in tries to see details of our Services he will th
 Our project has a button on the nav bar that will Sign out to you with a press.
 
 - Responsive:
-This project is responsive and works on Desktop, Laptop, Tab, and Mobile without any problem. This code does not have any bottom bar that will harm user experience.
+This project is responsive and works on Desktop, Laptop, Tab, and Mobile without any problem. This code does not have any bottom bar that will harm user experience. It is easy to use.
 
 Client Side Link:https://6538d0d3b266936bc82b93ff--fantastic-crepe-dadf07.netlify.app/
 
