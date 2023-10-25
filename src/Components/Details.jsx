@@ -1,42 +1,57 @@
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import { useContext } from "react";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 
 const Details = () => {
-  const { user} = useContext(AuthContext);
-  const email = user.email; 
+  const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
+  const email = user.email;
   const details = useLoaderData();
   const { model } = useParams();
   const detail = details.find((detail) => detail.model === model);
 
-
-  const handleAddToCart = () => {
+  const handleAddToCart = async (e) => {
+    e.preventDefault();
     const myCart = detail.model;
 
     const updateCart = {
       myCart,
     };
-
+    console.log("Before fetch request");
     //send data to the server
-    fetch(`http://localhost:5000/user/${email}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updateCart),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);        
-          Swal.fire({
-            title: "Success!",
-            text: "Car Added to the Cart Successfully",
-            icon: "success",
-            confirmButtonText: "Cool",
-          });
-        
+    try {
+      const response = await fetch(
+        `https://brand-store-server-lovat.vercel.app/user/${email}`,
+        {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(updateCart),
+        }
+      );
+      const data = await response.json();
+      console.log(data);
+      console.log("After fetch request");
+
+      Swal.fire({
+        title: "Success!",
+        text: "Car Added to the Cart Successfully",
+        icon: "success",
+        confirmButtonText: "Cool",
       });
+
+      navigate("/");
+    } catch (error) {
+      console.error(error);
+      Swal.fire({
+        title: "Failed!",
+        text: error.message,
+        icon: "error",
+        confirmButtonText: "Cool",
+      });
+    }
   };
 
   return (
@@ -72,4 +87,3 @@ const Details = () => {
 };
 
 export default Details;
-

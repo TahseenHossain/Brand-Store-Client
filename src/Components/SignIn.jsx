@@ -34,7 +34,7 @@ const SignIn = () => {
       .then((result) => {
         console.log(result.user);
         const user = { photoURL, name, email, password, myCart };
-        fetch("http://localhost:5000/user", {
+        fetch("https://brand-store-server-lovat.vercel.app/user", {
           method: "POST",
           headers: {
             "content-type": "application/json",

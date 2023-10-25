@@ -14,12 +14,10 @@ const LogIn = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
 
 
     signInUser(email, password)
       .then((result) => {
-        console.log(result.user);
         Swal.fire({
           title: "Success!",
           text: "Log In Successful",
@@ -42,17 +40,28 @@ const LogIn = () => {
       });
   };
 
-  const handleGoogleSignIn = () => {
-    signInWithGoogle()
-      .then((result) => {
-        e.target.reset();
-        console.log(result.user);
-      })
-      .catch((error) => {
-        e.target.reset();
-        console.error(error);
-        setLogInError(error.message);
+  const handleGoogleSignIn = async () => {
+    try{
+      await signInWithGoogle();
+      Swal.fire({
+        title: "Success!",
+        text: "Log In Successful",
+        icon: "success",
+        confirmButtonText: "Cool",
       });
+      navigate("/");
+    }
+
+    catch (error) {
+      console.error(error);
+      setLogInError(error.message);
+      Swal.fire({
+        title: "Failed!",
+        text: error.message,
+        icon: "error",
+        confirmButtonText: "Cool",
+      });
+    }
   };
 
   return (
@@ -87,7 +96,7 @@ const LogIn = () => {
           />
         </div>
         <div className="form-control mt-6">
-          <button className="btn bg-[#FF477E] hover:bg-pink-400 text-white">
+          <button className="btn bg-red-600 hover:bg-orange-600 text-white">
             Log In
           </button>
         </div>
@@ -96,14 +105,14 @@ const LogIn = () => {
       <div className="flex flex-col text-center py-8">
         <p className="text-2xl mb-4">If You Are New Here</p>
         <Link to="/SignIn">
-          <button className="btn bg-[#FF477E] hover:bg-pink-400 text-white">
+          <button className="btn bg-red-600 hover:bg-orange-600 text-white">
             Sign Up
           </button>
         </Link>
         <Link to="/SignIn">
           <button
             onClick={handleGoogleSignIn}
-            className="btn bg-[#FF477E] hover:bg-pink-400 text-white"
+            className="btn bg-red-600 hover:bg-orange-600 text-white"
           >
             Google
           </button>

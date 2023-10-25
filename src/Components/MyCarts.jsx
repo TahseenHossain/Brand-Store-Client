@@ -10,7 +10,7 @@ const MyCarts = () => {
     const fetchUserData = async () => {
       try {
         const userResponse = await fetch(
-          `http://localhost:5000/user/${user.email}`
+          `https://brand-store-server-lovat.vercel.app/user/${user.email}`
         );
 
 
@@ -19,7 +19,7 @@ const MyCarts = () => {
          
         
         const fetchModelDataPromises = myCart.map(async (model) => {
-          const elementResponse = await fetch(`http://localhost:5000/elements`);
+          const elementResponse = await fetch(`https://brand-store-server-lovat.vercel.app/elements`);
 
 
           const elementsData = await elementResponse.json();
@@ -64,7 +64,7 @@ const MyCarts = () => {
               <h2 className="card-title text-5xl text-red-600">
                 {element.brand}
               </h2>
-              <h3 className="text-4xl">Price: ${element.price}</h3>
+              <h3 className="text-4xl">Price: {element.price}</h3>
               <h3 className="text-4xl">{element.short}</h3>
               <h3 className="text-2xl">{element.full}</h3>
             </div>
